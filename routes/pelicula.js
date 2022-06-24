@@ -11,13 +11,11 @@ const router=new Router()
 
 router.get('/',[
   validarJWT,
-  check('id','Maximo 30').isLength({ max: 30}),
   check('id','complete el id').not().isEmpty(),
   validarCampos
 ], peliculaGet)
 router.get('/id/:id',[
   validarJWT,
-  check('id','Maximo 30').isLength({ max: 30}),
   check('id','complete el id').not().isEmpty(),
   check('id').custom( helpersPelicula.existePeliculaById ),
   validarCampos
@@ -25,7 +23,6 @@ router.get('/id/:id',[
 router.get('/id/:id',[
   validarJWT,
   check('id', 'El id es obligatorio!').not().isEmpty(),
-  check('id','Maximo 30').isLength({ max: 30}),
   validarCampos
 ], Getactor)
 router.get('/buscar/:titulo',[

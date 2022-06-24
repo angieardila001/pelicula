@@ -22,7 +22,6 @@ router.post('/post',[
 router.get('/', usuarioGet) //listar todos
 
 router.get('/login',[ //login
-validarJWT,
   check('email', 'El correo no es válido').isEmail(),
   check('password', 'Password incorrecto').not().isEmpty(),
   validarCampos
@@ -53,7 +52,6 @@ router.post('/foto',[
 router.put('/:id',[
   validarJWT,
   check('id','ingresa el id').not().isEmpty(),
-  check('id', 'El id es de maximo 25').isLength({ max: 25}),
   check('id').custom( helpersUsuarios.existeUsuarioById),
   validarCampos
 
@@ -61,14 +59,12 @@ router.put('/:id',[
 router.put('/activa/:id',[
   validarJWT,
   check('id','ingresa el id').not().isEmpty(),
-  check('id', 'El id es de maximo 2').isLength({ max: 2}),
   check('id').custom( helpersUsuarios.existeUsuarioById),
   validarCampos
 ],PutActivate)
 router.put('/desactiva/:id',[
   validarJWT,
   check('id','ingresa el id').not().isEmpty(),
-  check('id', 'El id es de maximo 2').isLength({ max: 2}),
   check('id').custom( helpersUsuarios.existeUsuarioById),
   validarCampos
 ],PutDeActivate)

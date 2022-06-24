@@ -11,14 +11,12 @@ const router=new Router()
 
 router.get('/usuario/:_id',[
     validarJWT,
-    check('idusuario','Maximo 30').isLength({ max: 30}),
     check('idusuario','complete el id usuario').not().isEmpty(),
     check('idusuario').custom( helpersFavorito.existeUsuarioById ),
     validarCampos
 ],usuarioGet )
 router.get('/pelicula/:_id',[
     validarJWT,
-    check('idpelicula','Maximo 30').isLength({ max: 30}),
     check('idpelicula','complete el id pelicula').not().isEmpty(),
     check('idpelicula').custom( helpersFavorito.existeFavoritoById ),
     validarCampos
@@ -32,17 +30,14 @@ router.get('/id/:titulo',[
 ],titulopeliculaGet )
 router.post('/', [
     validarJWT,
-    check('idpelicula','Maximo 30').isLength({ max: 30}),
     check('idpelicula','complete el id pelicula').not().isEmpty(),
     check('idpelicula').custom( helpersFavorito.existePeliculaById ),
-    check('idusuario','Maximo 30').isLength({ max: 30}),
     check('idusuario','complete el id usuario').not().isEmpty(),
     check('idusuario').custom( helpersFavorito.existeUsuarioById ),
     validarCampos
 ],favoritoPost )
 
 router.delete('/:_id',[
-    check('idpelicula','Maximo 30').isLength({ max: 30}),
     check('idpelicula','complete el id pelicula').not().isEmpty(),
     check('idpelicula').custom( helpersFavorito.existeFavoritoById ),
 ],favoritoDelete)

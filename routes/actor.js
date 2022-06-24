@@ -12,7 +12,6 @@ const router=new Router()
 router.get('/',actorGet )
 router.get('/id/:id',[
   validarJWT,
-  check('id','Maximo 30').isLength({ max: 30}),
   check('id','complete el id').not().isEmpty(),
   check('id').custom( helpersActor.existeActorById ),
   validarCampos
@@ -44,7 +43,6 @@ router.post('/upload/:id',[
 router.post('/foto/:foto', fotoactorPost )
 router.put('/:id',[
   validarJWT,
-  check('id','Maximo 30').isLength({ max: 30}),
   check('id','complete el id').not().isEmpty(),
   check('id').custom( helpersActor.existeActorById ),
   validarCampos

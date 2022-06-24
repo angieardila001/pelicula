@@ -12,21 +12,18 @@ const router=new Router()
 
 router.get('/pelicula',[
     validarJWT,
-    check('idPelicula','Maximo 30').isLength({ max: 30}),
     check('idPelicula','complete el id pelicula').not().isEmpty(),
     check('idPelicula').custom( helpersPelicula.existePeliculaById ),
     validarCampos
 ],peliculaGet)
 router.get('/usuario',[
     validarJWT,
-    check('idUsuario','Maximo 30').isLength({ max: 30}),
     check('idUsuario','complete el id usuario').not().isEmpty(),
     check('idUsuario').custom( helpersUsuarios.existeUsuarioById ),
     validarCampos
 ],usuarioGet)
 router.get('/id/:id',[
     validarJWT,
-    check('id','Maximo 30').isLength({ max: 30}),
     check('id','complete el id').not().isEmpty(),
     check('id').custom( helpersComentario.existeComentarioById ),
     validarCampos
@@ -45,7 +42,6 @@ router.post('/',[
 
 router.delete('/',[
     validarJWT,
-    check('id','Maximo 30').isLength({ max: 30}),
     check('id','complete el id').not().isEmpty(),
     check('id').custom( helpersComentario.existeComentarioById ),
     validarCampos
