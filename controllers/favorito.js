@@ -46,4 +46,5 @@ const favoritoDelete=async(req,res)=>{
   })      
 }
 
+
 export {usuarioGet,Get,titulopeliculaGet,favoritoPost,favoritoDelete,Getpel}
