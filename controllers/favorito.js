@@ -43,7 +43,7 @@ const favoritoDelete=async(req,res)=>{
   const favoritos=await Favorito.findOneAndDelete({idpelicula}) 
   res.json({
       msg:` ${favoritos} Ha sido eliminada`
-  })
+  })      
 }
 
 export {usuarioGet,Get,titulopeliculaGet,favoritoPost,favoritoDelete,Getpel}
