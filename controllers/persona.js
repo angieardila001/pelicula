@@ -22,8 +22,9 @@ const postlogin= async(req,res)=>{
 
   const { email, password } = req.body;
 
-  
+
   try {
+    
       const usuario = await Usuario.findOne({ email })
       if (!usuario) {
           return res.status(400).json({
