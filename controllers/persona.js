@@ -17,6 +17,7 @@ const idusuarioGet= async(req,res)=>{
   })
 }
 
+
 const postlogin= async(req,res)=>{
 
   const { email, password } = req.body;
