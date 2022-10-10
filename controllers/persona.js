@@ -7,7 +7,7 @@ const usuarioGet=async (req,res)=>{
   res.json({
     usuarios
   })
-}
+}               
 
 const idusuarioGet= async(req,res)=>{
   const {_id}=req.params
