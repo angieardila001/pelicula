@@ -8,7 +8,7 @@ const PeliculaSchema= new mongoose.Schema({
     categoria:{type:String, maxlength:25,required:true},
     reparto:[
         {
-        idactor:{type:mongoose.Schema.ObjectId, ref:"Actor", required:true},
+        idactor:{type:mongoose.Schema.ObjectId, ref:"Actor"},
         datosactor:{type:String},
         personaje:{type:String, maxlength:35},
         rol:{type:String,maxlength:30}, 
